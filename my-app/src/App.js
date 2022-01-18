@@ -10,8 +10,9 @@ function App() {
     })
     const getDatas = async () => {
         const result = await getData()
-        console.log('请求接口数据',result.api);
-        setData(result.api)
+        console.log('请求接口数据',result);
+        console.log('请求接口数据',result.apis);
+        setData(result.apis)
     }
     //   const data = [
     //     {
