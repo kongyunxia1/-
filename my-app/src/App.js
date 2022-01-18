@@ -5,6 +5,7 @@ import {getData} from './api.js'
 
 function App() {
     const [data,setData] = useState([]);
+    const [iptValue,setIptValue] = useState();
     useEffect(()=>{
         getDatas();
     })
@@ -58,13 +59,19 @@ function App() {
           ),
         }
       ];
-      
+      const handleIptValue = (e) => {
+        setIptValue(e.target.value);
+      }
+      const handleSearch = () =>{
+          console.log('文本框数据',iptValue);
+        //   setData()
+      }
      
   return (
     <div className="App">
         <div className="J-search">
-            <Input  className="J-input" placeholder="请输入" />
-            <Button type="primary">搜索</Button>
+            <Input  className="J-input" placeholder="请输入" value={iptValue} onChange={handleIptValue}/>
+            <Button type="primary" onClick={handleSearch}>搜索</Button>
         </div>
         <Table columns={columns} dataSource={data} rowKey={record => record.name}/>
     </div>
