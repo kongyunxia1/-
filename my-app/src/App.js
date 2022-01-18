@@ -8,10 +8,10 @@ function App() {
     useEffect(()=>{
         getDatas();
     })
-    const getDatas = async() => {
+    const getDatas = async () => {
         const result = await getData()
-        console.log('请求接口数据',result);
-        setData(result)
+        console.log('请求接口数据',result.api);
+        setData(result.api)
     }
     //   const data = [
     //     {
